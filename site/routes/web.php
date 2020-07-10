@@ -16,3 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('index');
 });
+
+Route::post('/stl/create', 'StlController@create')->name('create_stl');
+
+Route::post('/tag/upload', 'StlController@create')->name('create_tag');
+
+Route::post('/category/upload', 'StlController@create')->name('create_category');

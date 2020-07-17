@@ -2,11 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Tag;
+
 class TagController extends Controller
 {
     public function create()
     {
-        var_dump(request()->all());
-        die;
+        $tag = new Tag();
+        $tag->user_id = 1;
+        $tag->name = request('title');
+        $tag->color = request('color');
+        $tag->save();
+
+        return redirect(route('index'));
     }
 }

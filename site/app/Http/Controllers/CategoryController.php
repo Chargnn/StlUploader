@@ -2,11 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
+
 class CategoryController extends Controller
 {
     public function create()
     {
-        var_dump(request()->all());
-        die;
+        $cat = new Category();
+        $cat->user_id = 1;
+        $cat->name = request('title');
+        $cat->save();
+
+        return redirect(route('index'));
     }
 }

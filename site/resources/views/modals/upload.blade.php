@@ -1,7 +1,7 @@
 @extends('modals.layout', ['name' => 'upload', 'title' => 'Upload file'])
 
 @section('body')
-    <form class="w-full max-w-lg" method="POST" action="{{ route('create_stl') }}">
+    <form class="w-full max-w-lg" method="post" enctype="multipart/form-data" action="{{ route('create_stl') }}">
         {{ csrf_field() }}
         <div class="flex flex-wrap -mx-3 mb-6">
             <div class="w-full px-3">
@@ -17,10 +17,10 @@
                     Attach tags
                 </label>
                 <div class="relative">
-                    <select multiple id="upload-tags" name="tags" class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-                        <option>New Mexico</option>
-                        <option>Missouri</option>
-                        <option>Texas</option>
+                    <select multiple id="upload-tags" name="tags[]" class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                        @foreach($tags as $tag)
+                            <option style="background-color: {{ $tag->color }};" value="{{ $tag->id }}">{{ $tag->name }}</option>
+                        @endforeach
                     </select>
                 </div>
             </div>
@@ -29,10 +29,10 @@
                     Attach categories
                 </label>
                 <div class="relative">
-                    <select multiple id="upload-categories" name="categories" class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-                        <option>New Mexico</option>
-                        <option>Missouri</option>
-                        <option>Texas</option>
+                    <select multiple id="upload-categories" name="categories[]" class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                        @foreach($categories as $category)
+                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                        @endforeach
                     </select>
                 </div>
             </div>
@@ -42,6 +42,10 @@
             <label class="w-64 flex flex-col items-center px-4 py-6 bg-purple-600 text-white rounded-lg shadow-lg tracking-wide uppercase border border-blue cursor-pointer hover:bg-purple-700 hover:text-white">
                 <span class="text-base leading-normal">Select a file</span>
                 <input type='file' class="hidden" name="file" />
+            </label>
+            <label class="w-64 flex flex-col items-center px-4 py-6 bg-purple-600 text-white rounded-lg shadow-lg tracking-wide uppercase border border-blue cursor-pointer hover:bg-purple-700 hover:text-white">
+                <span class="text-base leading-normal">Select an image</span>
+                <input type='file' class="hidden" name="image" />
             </label>
         </div>
 

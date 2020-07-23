@@ -26,4 +26,15 @@
             <button type="submit" class="px-4 bg-purple-600 p-3 rounded-lg text-white hover:bg-purple-700">Create</button>
         </div>
     </form>
+    @if(count($tags))
+        <hr class="w-full mt-5 mb-5">
+        <div class="flex items-start flex-row justify-start text-xs">
+            @foreach($tags as $tag)
+                <span class="mr-2 text-white p-1 rounded leading-none flex items-center whitespace-no-wrap align-baseline border-r-0" style="background-color: {{ $tag->color }}">
+                    {{ $tag->name }}
+                    <a href="{{ route('delete_tag') }}?tag_id={{ $tag->id }}" class="pr-1 pl-1 cursor-pointer">✕</a>
+                </span>
+            @endforeach
+        </div>
+    @endif
 @overwrite

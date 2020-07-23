@@ -15,4 +15,13 @@ class CategoryController extends Controller
 
         return redirect(route('index'));
     }
+
+    public function delete()
+    {
+        /** @var Category $cat */
+        $cat = Category::find(request('cat_id'));
+        $cat->delete();
+
+        return redirect()->back();
+    }
 }

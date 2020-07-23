@@ -1,7 +1,7 @@
 @extends('modals.layout', ['name' => 'categories', 'title' => 'Add a category'])
 
 @section('body')
-    <form class="w-full max-w-lg" method="POST" action="{{ route('create_category') }}">
+    <form class="w-full max-w-lg" method="POST" action="{{ route('create_cat') }}">
         {{ csrf_field() }}
         <div class="flex flex-wrap -mx-3 mb-6">
             <div class="w-full px-3">
@@ -17,4 +17,13 @@
             <button type="submit" class="px-4 bg-purple-600 p-3 rounded-lg text-white hover:bg-purple-700">Create</button>
         </div>
     </form>
+
+    <div>
+        <h4>Existing: </h4>
+        <ul>
+            @foreach($categories as $category)
+                <li>- {{ $category->name }} <a href="{{ route('delete_cat') }}?cat_id={{ $category->id }}" class="text-purple-600">Delete</a></li>
+            @endforeach
+        </ul>
+    </div>
 @overwrite

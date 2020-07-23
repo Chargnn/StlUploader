@@ -16,4 +16,13 @@ class TagController extends Controller
 
         return redirect(route('index'));
     }
+
+    public function delete()
+    {
+        /** @var Tag $tag */
+        $tag = Tag::find(request('tag_id'));
+        $tag->delete();
+
+        return redirect()->back();
+    }
 }

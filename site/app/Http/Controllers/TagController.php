@@ -11,6 +11,7 @@ class TagController extends Controller
         $tag = new Tag();
         $tag->user_id = 1;
         $tag->name = request('title');
+        $tag->url = request('url');
         $tag->color = request('color');
         $tag->save();
 

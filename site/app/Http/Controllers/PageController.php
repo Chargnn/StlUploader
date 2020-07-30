@@ -10,7 +10,21 @@ class PageController extends Controller
 {
     public function index()
     {
-        $stls = StlModel::all();
+        if (request('search')) {
+            $search = request('search');
+            $stls = StlModel::with('tags')->with('categories')->where(function ($query) use ($search) {
+                $query->where('name', 'like', '%' . $search . '%')
+                    ->orWhereHas('tags', function($query) use ($search){
+                        $query->where('name', 'like', '%' . $search . '%');
+                    })
+                    ->orWhereHas('categories', function($query) use ($search){
+                        $query->where('name', 'like', '%' . $search . '%');
+                    });
+            })->get();
+        } else {
+            $stls = StlModel::all();
+        }
+
         $tags = Tag::all();
         $categories = Category::all();
 

@@ -10,7 +10,7 @@
         </div>
 
         <!-- Add margin if you want to see some of the overlay behind the modal-->
-        <div class="modal-content py-4 text-left px-6">
+        <div class="modal-content py-4 text-left px-6 bg-purple-1000 text-white">
             <!--Title-->
             <div class="flex justify-between items-center pb-3">
                 <p class="text-2xl font-bold">{{ $title }}</p>

@@ -34,13 +34,13 @@
         </nav>
 
         <div class="my-1 px-1 ml-2 flex content-start flex-row flex-wrap">
-            <button data-modal-name="categories" class="modal-open bg-purple-1000 w-auto font-bold py-2 px-3 mb-2 mt-2 rounded inline-flex items-center border-dashed border-4 border-gray-600 hover:shadow-xl hover:border-gray-500 hover:text-gray-500 text-gray-600 cursor-pointer">
+            <button data-modal-name="categories" class="modal-open bg-purple-1000 w-auto font-bold py-2 px-2 mb-2 mr-1 mt-2 rounded inline-flex items-center border-dashed border-4 border-gray-600 hover:shadow-xl hover:border-gray-500 hover:text-gray-500 text-gray-600 cursor-pointer">
                     <span class="material-icons">
                         add_circle
                     </span>
             </button>
             @foreach($categories as $category)
-                <button class="bg-purple-900 hover:bg-purple-800 text-white font-bold py-2 px-3 m-2 rounded inline-flex items-center">
+                <button class="bg-purple-900 hover:bg-purple-800 text-white font-bold py-2 px-2 m-2 mr-1 rounded inline-flex items-center">
                     <a href="#" class="mr-1">{{ $category->name }}</a>
                     <a href="{{ route('delete_cat') }}?cat_id={{ $category->id }}">✕</a>
                 </button>
@@ -48,7 +48,7 @@
         </div>
 
         <div class="my-1 px-1 flex content-start flex-wrap flex-row bg-purple-1000">
-            <article data-modal-name="upload" class="modal-open overflow-hidden rounded-lg inline ml-2 lg:my-4 lg:px-4 lg:w-1/5 border-dashed border-4 border-gray-600 hover:shadow-xl hover:border-gray-500 hover:text-gray-500 text-gray-600 cursor-pointer">
+            <article data-modal-name="upload" class="modal-open overflow-hidden rounded-lg inline ml-2 border-dashed border-4 border-gray-600 hover:shadow-xl hover:border-gray-500 hover:text-gray-500 text-gray-600 cursor-pointer" style="min-height: 300px; min-width: 300px;">
                 <div class="mx-auto h-full flex justify-center items-center">
                     <span class="material-icons">
                         add_circle
@@ -74,7 +74,7 @@
                                 <small>Last update: {{ date('Y/m/d H:i', strtotime($stl->updated_at)) }}</small>
                             </p>
                         </div>
-                        <h4>
+                        <div class="mb-1">
                             @if(count($stl->categories))
                                 In:
                                 <i>
@@ -83,7 +83,7 @@
                                     @endforeach
                                 </i>
                             @endif
-                        </h4>
+                        </div>
                     </header>
 
                     <footer class="leading-none">
@@ -102,10 +102,7 @@
                         @if(count($stl->tags))
                             <div class="flex items-start flex-row justify-start text-xs">
                                 @foreach($stl->tags as $tag)
-                                    <span class="mr-2 text-white p-1 rounded leading-none flex items-center whitespace-no-wrap align-baseline border-r-0" style="background-color: {{ $tag->color }}">
-                                        {{ $tag->name }}
-                                        <a href="{{ route('detach_tag') }}?stl_id={{ $stl->id }}&tag_id={{ $tag->id }}" class="pr-1 pl-1 cursor-pointer">✕</a>
-                                    </span>
+                                    @include('partials.tag')
                                 @endforeach
                             </div>
                         @endif

@@ -22,3 +22,19 @@ function setActiveModal(name){
   window.activeModal.name = name;
   window.activeModal.elem = document.querySelector('.modal-' + name);
 }
+
+(function() {
+    document.onkeydown = function(evt) {
+        evt = evt || window.event;
+
+        if ("key" in evt) {
+            isEscape = (evt.key === "Escape" || evt.key === "Esc");
+        } else {
+            isEscape = (evt.keyCode === 27);
+        }
+
+        if(isEscape){
+            window.activeModal.toggle();
+        }
+    }
+})();

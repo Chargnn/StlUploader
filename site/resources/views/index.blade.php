@@ -7,7 +7,7 @@
 
         <title>Stl manager</title>
 
-        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/app.css') }}?v={{ filemtime(public_path('css/app.css')) }}" rel="stylesheet">
         <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
         <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -33,6 +33,17 @@
             </form>
         </nav>
 
+        <div class="py-20" style="background: linear-gradient(90deg, #667eea 0%, #764ba2 100%)">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl font-bold mb-2 text-white">
+                    Free patreon stl
+                </h2>
+                <h3 class="text-2xl mb-8 text-gray-200">
+                    Want to invite someone ? Your code: YH4GDg5
+                </h3>
+            </div>
+        </div>
+
         <div class="my-1 px-1 ml-2 flex content-start flex-row flex-wrap">
             <button data-modal-name="categories" class="modal-open bg-purple-1000 w-auto font-bold py-2 px-2 mb-2 mr-1 mt-2 rounded inline-flex items-center border-dashed border-4 border-gray-600 hover:shadow-xl hover:border-gray-500 hover:text-gray-500 text-gray-600 cursor-pointer">
                     <span class="material-icons">
@@ -40,10 +51,16 @@
                     </span>
             </button>
             @foreach($categories as $category)
-                <button class="bg-purple-900 hover:bg-purple-800 text-white font-bold py-2 px-2 m-2 mr-1 rounded inline-flex items-center">
-                    <a href="#" class="mr-1">{{ $category->name }}</a>
-                    <a href="{{ route('delete_cat') }}?cat_id={{ $category->id }}">✕</a>
-                </button>
+                <ul class="w-auto">
+                    <li class="py-2 px-2 m-2 mr-1 flex justify-between items-center text-white bg-purple-900 hover:bg-purple-800 shadow rounded-lg">
+                        {{ $category->name }}
+                        <a href="{{ route('delete_cat') }}?cat_id={{ $category->id }}">
+                            <button class="p-1 focus:outline-none focus:shadow-outline text-red-500 hover:text-red-600">
+                                ✕
+                            </button>
+                        </a>
+                    </li>
+                </ul>
             @endforeach
         </div>
 
@@ -57,6 +74,38 @@
             </article>
 
             @foreach($stls as $stl)
+                <div class="bg-white w-1/2 h-auto rounded shadow-md flex card text-grey-darkest">
+                    <img class="w-full h-auto rounded-l-sm overflow-hidden" src="{{ asset('storage/' . $stl->img_path) }}" alt="Room Image">
+                    <div class="w-full flex flex-col">
+                        <div class="p-4 pb-0 flex-1">
+                            <h3 class="font-light mb-1 text-grey-darkest">{{ $stl->name }}</h3>
+                            <div class="text-xs flex items-center mb-4">
+                                @if(count($stl->categories))
+                                    In:
+                                    <i>
+                                        @foreach($stl->categories as $category)
+                                            <span>{{ $category->name }} <a href="{{ route('detach_cat') }}?stl_id={{ $stl->id }}&cat_id={{ $category->id }}" class="pr-1 cursor-pointer">✕</a></span>
+                                        @endforeach
+                                    </i>
+                                @endif
+                            </div>
+                            <span class="text-5xl text-grey-darkest">£63.00<span class="text-lg">/PPPN</span></span>
+                            <div class="flex items-center mt-4">
+                                <div class="pr-2 text-xs">
+                                    <i class="fas fa-wifi text-green"></i> Free WiFi
+                                </div>
+                                <div class="px-2 text-xs">
+                                    <i class="text-grey-darker far fa-building"></i> 2mins to center
+                                </div>
+                            </div>
+                        </div>
+                        <a class="no-underline hover:underline" href="{{ asset('storage/' . $stl->file_path) }}">
+                        <div class="bg-purple-200 p-3 flex items-center justify-between transition hover:bg-grey-light">
+                            Download <span class="material-icons">arrow_circle_down</span>
+                        </div>
+                        </a>
+                    </div>
+                </div>
                 <article class="overflow-hidden rounded-lg inline ml-2 sm:w-1/2 md:w-1/4 lg:my-4 lg:px-4 lg:w-1/5 text-white">
                     <a href="{{ asset('storage/' . $stl->file_path) }}">
                         <img alt="Placeholder" class="block mt-2 h-auto w-full" src="{{ asset('storage/' . $stl->img_path) }}">
@@ -111,10 +160,11 @@
             @endforeach
         </div>
 
+        @php($stl = null)
         @include('modals.upload')
         @include('modals.tags')
         @include('modals.categories')
 
-        <script src="{{ asset('js/app.js') }}"></script>
+        <script src="{{ asset('js/app.js') }}?v={{ filemtime(public_path('js/app.js')) }}"></script>
    </body>
 </html>

@@ -16,9 +16,11 @@
                 </label>
                 <input id="tags-url" type="text" name="url" class="appearance-none block w-full bg-white text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
             </div>
-        </div>
-        <div class="w-full flex justify-center items-center color-picker" acp-palette="PALETTE_MATERIAL_CHROME" acp-palette-editable>
-            <input type="hidden" name="color" id="tags-color" value="#FF0000" />
+            <div class="w-full px-3 mt-1">
+                <div class="w-full flex justify-center items-center color-picker" acp-palette-editable>
+                    <input type="hidden" name="color" id="tags-color" value="#FF0000" />
+                </div>
+            </div>
         </div>
 
         <div class="flex justify-end pt-2">

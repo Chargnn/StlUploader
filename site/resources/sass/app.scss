@@ -11,3 +11,15 @@
 .toggle-checkbox:checked + .toggle-label {
   background-color: #68D391;
 }
+
+.transition{
+    transition: all .2s ease-out;
+}
+
+.h-60{
+    height: 14rem;
+}
+
+.w-128{
+    width: 32rem;
+}

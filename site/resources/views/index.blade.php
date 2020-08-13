@@ -26,7 +26,7 @@
                             </div>
                             <div class="col-xl-3 col-lg-3 d-none d-lg-block">
                                 @guest
-                                    <div class="log_chat_area d-flex align-items-center">
+                                    <div class="log_chat_area d-flex align-items-center" style="cursor: pointer">
                                         <span data-toggle="modal" data-target="#loginModal" class="login popup-with-form">
                                             <span class="material-icons">
                                                 person
@@ -128,6 +128,7 @@
                             </div>
                         @endforeach
                     </div>
+                @else
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="section_title text-center mb-100">

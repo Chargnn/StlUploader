@@ -1,25 +1,8 @@
-@tailwind base;
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
 
-@tailwind components;
+// Variables
+@import 'variables';
 
-@tailwind utilities;
-
-.toggle-checkbox:checked {
-  right: 0;
-  border-color: #68D391;
-}
-.toggle-checkbox:checked + .toggle-label {
-  background-color: #68D391;
-}
-
-.transition{
-    transition: all .2s ease-out;
-}
-
-.h-60{
-    height: 14rem;
-}
-
-.w-128{
-    width: 32rem;
-}
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';

@@ -25,3 +25,5 @@ Route::get('/tag/delete', 'TagController@delete')->name('delete_tag');
 
 Route::post('/category/upload', 'CategoryController@create')->name('create_cat');
 Route::get('/category/delete', 'CategoryController@delete')->name('delete_cat');
+
+Auth::routes();

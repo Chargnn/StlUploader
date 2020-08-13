@@ -21,7 +21,11 @@
     },
     "dependencies": {
         "a-color-picker": "^1.2.1",
+        "bootstrap": "^4.5.0",
+        "jquery": "^3.5.1",
+        "jquery-easing": "0.0.1",
         "laravel-mix-tailwind": "^0.1.0",
-        "tailwindcss": "^1.6.0"
+        "magnific-popup": "^1.1.0",
+        "popper.js": "^1.16.1"
     }
 }

@@ -10910,6 +10910,10 @@ a.text-dark:focus {
   justify-content: start;
 }
 
+.vertical-align-middle {
+  vertical-align: middle;
+}
+
 /* Normal desktop :1200px. */
 
 /* Normal desktop :992px. */

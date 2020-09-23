@@ -120,7 +120,7 @@
                                 <div class="card-footer">
                                     <a href="{{ asset('storage/' . $stl->file_path) }}">
                                         <div class="btn btn-outline-success">
-                                            Download <span class="material-icons">arrow_circle_down</span>
+                                            Download <span class="material-icons vertical-align-middle">arrow_circle_down</span>
                                         </div>
                                     </a>
                                     @auth
@@ -141,8 +141,9 @@
                                 <h3>
                                     Nothing.
                                 </h3>
-                                <p>Query for "{{ request('search') }}" didn't find anything
-                                </p>
+                                @if(!empty(request('search')))
+                                    <p>Query for "{{ request('search') }}" didn't find anything</p>
+                                @endif
                             </div>
                         </div>
                     </div>

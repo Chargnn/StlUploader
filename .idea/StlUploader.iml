@@ -32,6 +32,7 @@
       <excludeFolder url="file://$MODULE_DIR$/site/vendor/laravel/ui" />
       <excludeFolder url="file://$MODULE_DIR$/site/vendor/league/commonmark" />
       <excludeFolder url="file://$MODULE_DIR$/site/vendor/league/flysystem" />
+      <excludeFolder url="file://$MODULE_DIR$/site/vendor/league/mime-type-detection" />
       <excludeFolder url="file://$MODULE_DIR$/site/vendor/mockery/mockery" />
       <excludeFolder url="file://$MODULE_DIR$/site/vendor/monolog/monolog" />
       <excludeFolder url="file://$MODULE_DIR$/site/vendor/myclabs/deep-copy" />

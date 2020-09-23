@@ -106,6 +106,7 @@
       <path value="$PROJECT_DIR$/site/vendor/symfony/polyfill-php70" />
       <path value="$PROJECT_DIR$/site/vendor/tremby/laravel-git-version" />
       <path value="$PROJECT_DIR$/site/vendor/laravel/ui" />
+      <path value="$PROJECT_DIR$/site/vendor/league/mime-type-detection" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.4" />

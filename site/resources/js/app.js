@@ -1,5 +1,4 @@
 require('./bootstrap');
-require('./modal');
 const AColorPicker = require('a-color-picker');
 
 let picker = AColorPicker.from('div.color-picker');

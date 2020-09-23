@@ -37,12 +37,18 @@
                                 @endguest
                                 @auth
                                     <div class="log_chat_area d-flex align-items-center">
-                                    <span class="login popup-with-form">
-                                        <span class="material-icons">
-                                            person
+                                        <span class="login popup-with-form">
+                                            <span class="material-icons">
+                                                person
+                                            </span>
+                                            <span>{{ Auth::user()->name }}</span>
                                         </span>
-                                        <span>{{ Auth::user()->name }}</span>
-                                    </span>
+                                    </div>
+
+                                    <div class="log_chat_area d-flex align-items-center" style="cursor: pointer">
+                                        <span data-toggle="modal" data-target="#uploadModal" class="login popup-with-form">
+                                            <span>Add STL</span>
+                                        </span>
                                     </div>
                                 @endauth
                             </div>
@@ -160,6 +166,7 @@
         </footer>
 
         @include('modals.login')
+        @include('modals.upload')
 
         <script src="{{ asset('js/app.js') }}?v={{ filemtime(public_path('js/app.js')) }}"></script>
     </body>

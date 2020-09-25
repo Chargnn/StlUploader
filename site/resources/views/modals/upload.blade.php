@@ -29,12 +29,12 @@
                                 </select>
                             </div>
                             <div class="col-xl-12 col-md-12">
-                                Select a file
-                                <input type='file' class="hidden" name="file" />
+                                File URL
+                                <input type='text' class="hidden" name="file" />
                             </div>
                             <div class="col-xl-12 col-md-12">
-                                Select an image
-                                <input type='file' class="hidden" name="image" />
+                                Image URL
+                                <input type='text' class="hidden" name="image" />
                             </div>
                             <div class="col-xl-12">
                                 <button type="submit" class="boxed_btn_green">Enter</button>

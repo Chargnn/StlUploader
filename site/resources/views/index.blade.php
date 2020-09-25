@@ -50,6 +50,18 @@
                                             <span>Add STL</span>
                                         </span>
                                     </div>
+
+                                    <div class="log_chat_area d-flex align-items-center" style="cursor: pointer">
+                                        <span data-toggle="modal" data-target="#tagsModal" class="login popup-with-form">
+                                            <span>Add Tags</span>
+                                        </span>
+                                    </div>
+
+                                    <div class="log_chat_area d-flex align-items-center" style="cursor: pointer">
+                                        <span data-toggle="modal" data-target="#categoriesModal" class="login popup-with-form">
+                                            <span>Add Categories</span>
+                                        </span>
+                                    </div>
                                 @endauth
                             </div>
                         </div>
@@ -98,7 +110,7 @@
                     <div class="card-deck">
                         @foreach($stls as $stl)
                             <div class="card shadow-sm">
-                                <img class="card-img-top" src="{{ asset('storage/' . $stl->img_path) }}" alt="Card image cap">
+                                <iframe class="card-img-top" src="{{ $stl->img_path }}"></iframe>
                                 <div class="card-body">
                                     <h5 class="card-title">{{ $stl->name }}</h5>
                                     <p class="card-text">
@@ -118,7 +130,7 @@
                                     </p>
                                 </div>
                                 <div class="card-footer">
-                                    <a href="{{ asset('storage/' . $stl->file_path) }}">
+                                    <a href="{{ $stl->file_path }}">
                                         <div class="btn btn-outline-success">
                                             Download <span class="material-icons vertical-align-middle">arrow_circle_down</span>
                                         </div>
@@ -168,6 +180,8 @@
 
         @include('modals.login')
         @include('modals.upload')
+        @include('modals.tags')
+        @include('modals.categories')
 
         <script src="{{ asset('js/app.js') }}?v={{ filemtime(public_path('js/app.js')) }}"></script>
     </body>

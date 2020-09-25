@@ -13,27 +13,9 @@ class StlController extends Controller
         $stl            = new StlModel();
         $stl->name      = request('title');
         $stl->user_id   = 1;
-        $stl->file_path = '';
-        $stl->img_path  = '';
+        $stl->file_path = request('file');
+        $stl->img_path  = request('image');
         $stl->save();
-
-        if (request('file')) {
-            $filePath = request('file');
-            $fileName = $filePath->getClientOriginalName();
-            $path     = request('file')->storeAs('uploads', $fileName, 'public');
-
-            $stl->file_path = $path;
-            $stl->save();
-        }
-
-        if (request('image')) {
-            $imgPath = request('image');
-            $imgName = $imgPath->getClientOriginalName();
-            $path    = request('image')->storeAs('images', $imgName, 'public');
-
-            $stl->img_path = $path;
-            $stl->save();
-        }
 
         $tags = request('tags');
         if ($tags && count($tags) > 0) {

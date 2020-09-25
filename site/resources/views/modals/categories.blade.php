@@ -1,29 +1,34 @@
-@extends('modals.layout', ['name' => 'categories', 'title' => 'Add a category'])
+<div class="modal fade" id="categoriesModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <form method="POST" action="{{ route('create_cat') }}" class="w-full max-w-lg"  enctype="multipart/form-data">
+                @csrf
+                <div class="popup_box ">
+                    <div class="popup_inner">
+                        <h3>Connect</h3>
 
-@section('body')
-    <form class="w-full max-w-lg" method="POST" action="{{ route('create_cat') }}">
-        {{ csrf_field() }}
-        <div class="flex flex-wrap -mx-3 mb-6">
-            <div class="w-full px-3">
-                <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="categories-title">
-                    Title
-                </label>
-                <input id="categories-title" type="text" name="title" class="appearance-none block w-full bg-white text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                        <div class="row">
+                            <div class="col-xl-12 col-md-12">
+                                Title
+                                <input id="categories-title" type="text" name="title">
+                            </div>
+
+                            <div class="col-xl-12">
+                                <button type="submit" class="boxed_btn_green">Enter</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <div>
+                <h4>Existing: </h4>
+                <ul>
+                    @foreach($categories as $category)
+                        <li>- {{ $category->name }} <a href="{{ route('delete_cat') }}?category_id={{ $category->id }}" class="text-purple-600">Delete</a></li>
+                    @endforeach
+                </ul>
             </div>
         </div>
-
-        <div class="flex justify-end pt-2">
-            <button type="button" onclick="window.activeModal.toggle();" class="px-4 bg-transparent p-3 rounded-lg text-purple-600 hover:bg-purple-900 hover:text-purple-500 mr-2">Cancel</button>
-            <button type="submit" class="px-4 bg-purple-600 p-3 rounded-lg text-white hover:bg-purple-700">Create</button>
-        </div>
-    </form>
-
-    <div>
-        <h4>Existing: </h4>
-        <ul>
-            @foreach($categories as $category)
-                <li>- {{ $category->name }} <a href="{{ route('delete_cat') }}?cat_id={{ $category->id }}" class="text-purple-600">Delete</a></li>
-            @endforeach
-        </ul>
     </div>
-@overwrite
+</div>

@@ -44,24 +44,6 @@
                                             <span>{{ Auth::user()->name }}</span>
                                         </span>
                                     </div>
-
-                                    <div class="log_chat_area d-flex align-items-center" style="cursor: pointer">
-                                        <span data-toggle="modal" data-target="#uploadModal" class="login popup-with-form">
-                                            <span>Add STL</span>
-                                        </span>
-                                    </div>
-
-                                    <div class="log_chat_area d-flex align-items-center" style="cursor: pointer">
-                                        <span data-toggle="modal" data-target="#tagsModal" class="login popup-with-form">
-                                            <span>Add Tags</span>
-                                        </span>
-                                    </div>
-
-                                    <div class="log_chat_area d-flex align-items-center" style="cursor: pointer">
-                                        <span data-toggle="modal" data-target="#categoriesModal" class="login popup-with-form">
-                                            <span>Add Categories</span>
-                                        </span>
-                                    </div>
                                 @endauth
                             </div>
                         </div>
@@ -92,21 +74,9 @@
             </div>
         </div>
 
-        <div class="container d-flex justify-content-center mt-5">
-            <div class="row">
-                <div class="list-group list-group-horizontal">
-                    @foreach($categories as $category)
-                        <a href="?search={{ $category->name }}" class="list-group-item list-group-item-action {{ request('search') === $category->name ? 'list-group-item-primary' : '' }}">
-                            {{ $category->name }}
-                        </a>
-                    @endforeach
-                </div>
-            </div>
-        </div>
-
         <div class="prising_area" id="results">
             <div class="container">
-                @if(count($stls) > 0)
+                @if(false)
                     <div class="card-deck">
                         @foreach($stls as $stl)
                             <div class="card shadow-sm">
@@ -179,9 +149,6 @@
         </footer>
 
         @include('modals.login')
-        @include('modals.upload')
-        @include('modals.tags')
-        @include('modals.categories')
 
         <script src="{{ asset('js/app.js') }}?v={{ filemtime(public_path('js/app.js')) }}"></script>
     </body>

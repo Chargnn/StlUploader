@@ -20,8 +20,12 @@
       <excludeFolder url="file://$MODULE_DIR$/site/vendor/facade/ignition-contracts" />
       <excludeFolder url="file://$MODULE_DIR$/site/vendor/fideloper/proxy" />
       <excludeFolder url="file://$MODULE_DIR$/site/vendor/filp/whoops" />
+      <excludeFolder url="file://$MODULE_DIR$/site/vendor/firebase/php-jwt" />
       <excludeFolder url="file://$MODULE_DIR$/site/vendor/fruitcake/laravel-cors" />
       <excludeFolder url="file://$MODULE_DIR$/site/vendor/fzaninotto/faker" />
+      <excludeFolder url="file://$MODULE_DIR$/site/vendor/google/apiclient" />
+      <excludeFolder url="file://$MODULE_DIR$/site/vendor/google/apiclient-services" />
+      <excludeFolder url="file://$MODULE_DIR$/site/vendor/google/auth" />
       <excludeFolder url="file://$MODULE_DIR$/site/vendor/guzzlehttp/guzzle" />
       <excludeFolder url="file://$MODULE_DIR$/site/vendor/guzzlehttp/promises" />
       <excludeFolder url="file://$MODULE_DIR$/site/vendor/guzzlehttp/psr7" />
@@ -32,10 +36,13 @@
       <excludeFolder url="file://$MODULE_DIR$/site/vendor/laravel/ui" />
       <excludeFolder url="file://$MODULE_DIR$/site/vendor/league/commonmark" />
       <excludeFolder url="file://$MODULE_DIR$/site/vendor/league/flysystem" />
+      <excludeFolder url="file://$MODULE_DIR$/site/vendor/league/flysystem-cached-adapter" />
       <excludeFolder url="file://$MODULE_DIR$/site/vendor/league/mime-type-detection" />
       <excludeFolder url="file://$MODULE_DIR$/site/vendor/mockery/mockery" />
       <excludeFolder url="file://$MODULE_DIR$/site/vendor/monolog/monolog" />
       <excludeFolder url="file://$MODULE_DIR$/site/vendor/myclabs/deep-copy" />
+      <excludeFolder url="file://$MODULE_DIR$/site/vendor/nao-pon/flysystem-cached-extra" />
+      <excludeFolder url="file://$MODULE_DIR$/site/vendor/nao-pon/flysystem-google-drive" />
       <excludeFolder url="file://$MODULE_DIR$/site/vendor/nesbot/carbon" />
       <excludeFolder url="file://$MODULE_DIR$/site/vendor/nikic/php-parser" />
       <excludeFolder url="file://$MODULE_DIR$/site/vendor/nunomaduro/collision" />
@@ -47,6 +54,7 @@
       <excludeFolder url="file://$MODULE_DIR$/site/vendor/phpdocumentor/reflection-docblock" />
       <excludeFolder url="file://$MODULE_DIR$/site/vendor/phpdocumentor/type-resolver" />
       <excludeFolder url="file://$MODULE_DIR$/site/vendor/phpoption/phpoption" />
+      <excludeFolder url="file://$MODULE_DIR$/site/vendor/phpseclib/phpseclib" />
       <excludeFolder url="file://$MODULE_DIR$/site/vendor/phpspec/prophecy" />
       <excludeFolder url="file://$MODULE_DIR$/site/vendor/phpunit/php-code-coverage" />
       <excludeFolder url="file://$MODULE_DIR$/site/vendor/phpunit/php-file-iterator" />
@@ -54,6 +62,7 @@
       <excludeFolder url="file://$MODULE_DIR$/site/vendor/phpunit/php-timer" />
       <excludeFolder url="file://$MODULE_DIR$/site/vendor/phpunit/php-token-stream" />
       <excludeFolder url="file://$MODULE_DIR$/site/vendor/phpunit/phpunit" />
+      <excludeFolder url="file://$MODULE_DIR$/site/vendor/psr/cache" />
       <excludeFolder url="file://$MODULE_DIR$/site/vendor/psr/container" />
       <excludeFolder url="file://$MODULE_DIR$/site/vendor/psr/event-dispatcher" />
       <excludeFolder url="file://$MODULE_DIR$/site/vendor/psr/http-message" />
@@ -85,6 +94,7 @@
       <excludeFolder url="file://$MODULE_DIR$/site/vendor/symfony/event-dispatcher" />
       <excludeFolder url="file://$MODULE_DIR$/site/vendor/symfony/event-dispatcher-contracts" />
       <excludeFolder url="file://$MODULE_DIR$/site/vendor/symfony/finder" />
+      <excludeFolder url="file://$MODULE_DIR$/site/vendor/symfony/http-client-contracts" />
       <excludeFolder url="file://$MODULE_DIR$/site/vendor/symfony/http-foundation" />
       <excludeFolder url="file://$MODULE_DIR$/site/vendor/symfony/http-kernel" />
       <excludeFolder url="file://$MODULE_DIR$/site/vendor/symfony/mime" />

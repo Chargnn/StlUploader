@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Providers\GoogleDriveServiceProvider;
+use Illuminate\Support\Facades\Storage;
 use App\StlModel;
 use App\Tag;
 
@@ -10,7 +12,7 @@ class PageController extends Controller
 {
     public function index()
     {
-        if (request('search')) {
+        /*if (request('search')) {
             $search = request('search');
             $stls = StlModel::with('tags')->with('categories')->where(function ($query) use ($search) {
                 $query->where('name', 'like', '%' . $search . '%')
@@ -28,6 +30,10 @@ class PageController extends Controller
         $tags = Tag::all();
         $categories = Category::all();
 
-        return view('index')->with(['stls' => $stls, 'tags' => $tags, 'categories' => $categories]);
+        return view('index')->with(['stls' => $stls, 'tags' => $tags, 'categories' => $categories]);*/
+
+	    //var_dump(Storage::disk('google')->listContents(GoogleDriveServiceProvider::getSoloMinisFolderPath(), true));die;
+
+        return view('index');
     }
 }

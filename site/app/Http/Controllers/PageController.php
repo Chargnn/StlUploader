@@ -12,7 +12,8 @@ class PageController extends Controller
 {
     public function index()
     {
-        /*if (request('search')) {
+        // TODO: Recherche
+	/*if (request('search')) {
             $search = request('search');
             $stls = StlModel::with('tags')->with('categories')->where(function ($query) use ($search) {
                 $query->where('name', 'like', '%' . $search . '%')
@@ -32,8 +33,11 @@ class PageController extends Controller
 
         return view('index')->with(['stls' => $stls, 'tags' => $tags, 'categories' => $categories]);*/
 
-	    //var_dump(Storage::disk('google')->listContents(GoogleDriveServiceProvider::getSoloMinisFolderPath(), true));die;
+	//var_dump(Storage::disk('google')->listContents(GoogleDriveServiceProvider::getSoloMinisFolderPath(), true));die;
 
-        return view('index');
+	// TODO: Fetch all stls
+	$stls = [];
+
+        return view('index')->with('stls', $stls);
     }
 }

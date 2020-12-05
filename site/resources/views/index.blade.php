@@ -15,43 +15,6 @@
     <body>
         <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
 
-        <header>
-            <div class="header-area ">
-                <div id="sticky-header" class="main-header-area">
-                    <div class="container-fluid p-0">
-                        <div class="row align-items-center no-gutters">
-                            <div class="col-xl-2 col-lg-2">
-                            </div>
-                            <div class="col-xl-7 col-lg-7">
-                            </div>
-                            <div class="col-xl-3 col-lg-3 d-none d-lg-block">
-                                @guest
-                                    <div class="log_chat_area d-flex align-items-center" style="cursor: pointer">
-                                        <span data-toggle="modal" data-target="#loginModal" class="login popup-with-form">
-                                            <span class="material-icons">
-                                                person
-                                            </span>
-                                            <span>Admin access</span>
-                                        </span>
-                                    </div>
-                                @endguest
-                                @auth
-                                    <div class="log_chat_area d-flex align-items-center">
-                                        <span class="login popup-with-form">
-                                            <span class="material-icons">
-                                                person
-                                            </span>
-                                            <span>{{ Auth::user()->name }}</span>
-                                        </span>
-                                    </div>
-                                @endauth
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header>
-
         <div class="slider_area shadow-lg">
             <div class="single_slider d-flex align-items-center justify-content-center slider_bg_1 overlay2">
                 <div class="container">
@@ -76,7 +39,7 @@
 
         <div class="prising_area" id="results">
             <div class="container">
-                @if(false)
+                @if(!empty($stls))
                     <div class="card-deck">
                         @foreach($stls as $stl)
                             <div class="card shadow-sm">
@@ -84,19 +47,11 @@
                                 <div class="card-body">
                                     <h5 class="card-title">{{ $stl->name }}</h5>
                                     <p class="card-text">
-                                        @if(count($stl->categories))
-                                            Categories:
-                                            @foreach($stl->categories as $category)
-                                                <span>{{ $category->name }}</span>
-                                            @endforeach
-                                        @endif
+                                        Categories:
+                                        <span>Category todo</span>
                                         <br>
 
-                                        @if(count($stl->tags))
-                                            @foreach($stl->tags as $tag)
-                                                @include('partials.tag')
-                                            @endforeach
-                                        @endif
+                                        @include('partials.tag')
                                     </p>
                                 </div>
                                 <div class="card-footer">
